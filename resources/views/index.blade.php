@@ -51,135 +51,27 @@
             <thead>
               <tr>
                 <th>名前</th>
-                <th>年齢</th>
-                <th>生年月日</th>
-                <th>e-mail</th>
-                <th>TEL</th>
-                <th>プラン名</th>
+                <th>電話番号</th>
+                <th>指導可能言語</th>
+                <th>経験年数</th>
+                <th>自己紹介</th>
                 <th></th>
               </tr>
             </thead>
-            <tbody>
-              <tr>
-                <td>鈴木 健司</td>
-                <td>20</td>
-                <td>2001/9/21</td>
-                <td>suzuken@ggmail.com</td>
-                <td>080-1234-5678</td>
-                <td>PREMIUM</td>
-                <td>
-                  <button class="tb-btn tb-btn-edit">編集</button>
-                  <button class="tb-btn tb-btn-del">削除</button>
-                </td>
-              </tr>
-              <tr>
-                <td>山田 可奈子</td>
-                <td>22</td>
-                <td>1999/12/6</td>
-                <td>kanako-1206@ggmail.com</td>
-                <td>080-1234-5678</td>
-                <td>PREMIUM</td>
-                <td>
-                  <button class="tb-btn tb-btn-edit">編集</button>
-                  <button class="tb-btn tb-btn-del">削除</button>
-                </td>
-              </tr>
-              <tr>
-                <td>松田 隆</td>
-                <td>19</td>
-                <td>2002/1/10</td>
-                <td>matsusda-matsu@ggmail.com</td>
-                <td>080-1234-5678</td>
-                <td>STANDARD</td>
-                <td>
-                  <button class="tb-btn tb-btn-edit">編集</button>
-                  <button class="tb-btn tb-btn-del">削除</button>
-                </td>
-              </tr>
-              <tr>
-                <td>山田 秀幸</td>
-                <td>20</td>
-                <td>2001/9/21</td>
-                <td>hide-0001@ggmail.com</td>
-                <td>080-1234-5678</td>
-                <td>PREMIUM</td>
-                <td>
-                  <button class="tb-btn tb-btn-edit">編集</button>
-                  <button class="tb-btn tb-btn-del">削除</button>
-                </td>
-              </tr>
-              <tr>
-                <td>森 直子</td>
-                <td>22</td>
-                <td>1999/12/6</td>
-                <td>naoko-mori@ggmail.com</td>
-                <td>080-1234-5678</td>
-                <td>PREMIUM</td>
-                <td>
-                  <button class="tb-btn tb-btn-edit">編集</button>
-                  <button class="tb-btn tb-btn-del">削除</button>
-                </td>
-              </tr>
-              <tr>
-                <td>高岡 正和</td>
-                <td>19</td>
-                <td>2002/1/10</td>
-                <td>mskz0110@ggmail.com</td>
-                <td>080-1234-5678</td>
-                <td>STANDARD</td>
-                <td>
-                  <button class="tb-btn tb-btn-edit">編集</button>
-                  <button class="tb-btn tb-btn-del">削除</button>
-                </td>
-              </tr>
-              <tr>
-                <td>坂本 優</td>
-                <td>20</td>
-                <td>2001/9/21</td>
-                <td>suguru@ggmail.com</td>
-                <td>080-1234-5678</td>
-                <td>PREMIUM</td>
-                <td>
-                  <button class="tb-btn tb-btn-edit">編集</button>
-                  <button class="tb-btn tb-btn-del">削除</button>
-                </td>
-              </tr>
-              <tr>
-                <td>大島 美香子</td>
-                <td>22</td>
-                <td>1999/12/6</td>
-                <td>mikako01234@ggmail.com</td>
-                <td>080-1234-5678</td>
-                <td>PREMIUM</td>
-                <td>
-                  <button class="tb-btn tb-btn-edit">編集</button>
-                  <button class="tb-btn tb-btn-del">削除</button>
-                </td>
-              </tr>
-              <tr>
-                <td>山本 志帆</td>
-                <td>19</td>
-                <td>2002/1/10</td>
-                <td>yamashiho2002@ggmail.com</td>
-                <td>080-1234-5678</td>
-                <td>STANDARD</td>
-                <td>
-                  <button class="tb-btn tb-btn-edit">編集</button>
-                  <button class="tb-btn tb-btn-del">削除</button>
-                </td>
-              </tr>
-              <tr>
-                <td>丸山 宏二</td>
-                <td>20</td>
-                <td>2001/9/21</td>
-                <td>koji0921@ggmail.com</td>
-                <td>080-1234-5678</td>
-                <td>PREMIUM</td>
-                <td>
-                  <button class="tb-btn tb-btn-edit">編集</button>
-                  <button class="tb-btn tb-btn-del">削除</button>
-                </td>
-              </tr>
+            <tbody>            
+              @foreach($menters as $menter)
+                  <tr>
+                    <td>{{ $menter->name }}</td>
+                    <td>{{ $menter->tel }}</td>
+                    <td>{{ $menter->teaching_languages }}</td>
+                    <td>{{ $menter->experience_years }}</td>
+                    <td>{{ $menter->introduction }}</td>
+                    <td>
+                      <button class="tb-btn tb-btn-edit">編集</button>
+                      <button class="tb-btn tb-btn-del">削除</button>
+                    </td>
+                  </tr>
+              @endforeach
             </tbody>
           </table>
           
