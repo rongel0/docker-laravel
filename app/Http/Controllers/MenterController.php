@@ -10,11 +10,19 @@ class MenterController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index(Request $request)
     {
-        $menters = Menter::all();
-        return view("index",compact("menters"));
-    }   
+        $query = Menter::query();
+
+        if ($request->has('search_tel') && !empty($request->input('search_tel'))) {
+            $searchTel = $request->input('search_tel');
+            $query->where('tel', 'like', '%' . $searchTel . '%');
+        }
+
+        $menters = $query->paginate(5);
+
+        return view('index', compact('menters'));
+    }
 
     /**
      * Show the form for creating a new resource.

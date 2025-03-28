@@ -36,16 +36,20 @@
 
   <div class="r-column col-sm-10">
     <div class="header col-sm-10">
-      <button class="input-btn col-sm-4" type="submit">
-        <input type="text" placeholder="TEL検索">
-        <i class="fas fa-search"></i>
-      </button>
+      <form action="{{ route('index') }}" method="GET" class="input-btn col-sm-4">
+        <input type="text" name="search_tel" placeholder="TEL検索" value="{{ request()->input('search_tel') }}">
+        <button type="submit" class="btn">
+          <i class="fas fa-search"></i>
+        </button>
+      </form>
     </div>
+    
+   
     <!-- /.header .col-sm-10 -->
 
     <main class="student-list">
       <div class="container-fluid wrapper">
-        <p class="result">15件</p>
+        <p class="result">{{ $menters->total() }}件</p>
         <section class="container-fluid contents-area">
           <table class="table">
             <thead>
@@ -77,20 +81,8 @@
           
         </section>
         <!-- /.container-fluid .contents-area -->
-
-        <nav class="pager">
-          <ul class="pagination justify-content-center">
-            <li class="page-item active">
-              <a class="page-link" href="#">1 <span class="sr-only">(current)</span></a>
-            </li>
-            <li class="page-item"><a class="page-link" href="#">2</a></li>
-            <li class="page-item">
-              <a class="pager-next" href="#"><i class="fas fa-angle-right"></i></a>
-            </li>
-          </ul>
-        </nav>
+        {{ $menters->links("vendor.pagination.custom") }}
         <!-- /.pager -->
-
       </div>
       <!-- /.container-fluid .wrapper-->
     </main>
